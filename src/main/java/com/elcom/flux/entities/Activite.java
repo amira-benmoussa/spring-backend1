@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import lombok.Data;
 @Entity
 @Data
+
 public class Activite {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
