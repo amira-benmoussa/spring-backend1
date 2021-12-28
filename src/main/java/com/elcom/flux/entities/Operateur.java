@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import lombok.Data;
 @Entity
-@Table(name = "operateur")
 @Data
 public class Operateur extends Employee  implements Serializable {
 	
