@@ -8,7 +8,6 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-
 @Data
 public class ODP {
 	@Id
