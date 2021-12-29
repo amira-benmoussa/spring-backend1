@@ -32,7 +32,7 @@ public class ResponsableService {
 		if (exist) {
 			return new MessageResponse(false, "Attention", "Email existe déjà");
 		}
-
+		responsable.setEnabled(true);
 		String encodedPassword = passwordEncoder.encode(responsable.getPassword());
 		responsable.setPassword(encodedPassword);
 		responsableRepository.save(responsable);

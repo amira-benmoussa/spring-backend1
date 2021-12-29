@@ -18,14 +18,14 @@ public class OperateurService {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
-	public MessageResponse save(Operateur Operateur) {
+	public MessageResponse save(Operateur operateur) {
 
-		boolean exist = employeeRepository.existsByMatricule(Operateur.getMatricule());
+		boolean exist = employeeRepository.existsByMatricule(operateur.getMatricule());
 		if (exist) {
 			return new MessageResponse(false, "Attention", "Matricule existe déjà");
 		}
-
-		operateurRepository.save(Operateur);
+		operateur.setEnabled(true);
+		operateurRepository.save(operateur);
 		return new MessageResponse(true, "Succès", "Opération effectuée");
 	}
 
