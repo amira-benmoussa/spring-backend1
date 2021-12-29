@@ -32,5 +32,6 @@ public class Employee implements Serializable {
 	private String tel;
 
 	private String poste;
+	private boolean enabled;
 
 }

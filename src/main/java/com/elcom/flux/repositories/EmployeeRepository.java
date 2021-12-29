@@ -8,4 +8,8 @@ import com.elcom.flux.entities.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Integer > {
 
+	boolean existsByMatricule(String matricule);
+
+	boolean existsByMatriculeAndId(String matricule, Integer id);
+
 }

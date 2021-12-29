@@ -7,4 +7,8 @@ import com.elcom.flux.entities.Responsable;
 @Repository
 public interface ResponsableRepository extends JpaRepository<Responsable, Integer> {
 
+	boolean existsByEmail(String email);
+
+	boolean existsByEmailAndId(String email, Integer id);
+
 }
