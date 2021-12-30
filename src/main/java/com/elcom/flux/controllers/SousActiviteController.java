@@ -13,36 +13,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.elcom.flux.entities.Activite;
-import com.elcom.flux.repositories.ActiviteRepository;
+import com.elcom.flux.entities.SousActivite;
+import com.elcom.flux.repositories.SousActiviteRepository;
 import com.elcom.flux.responses.MessageResponse;
-import com.elcom.flux.services.ActiviteService;
+import com.elcom.flux.services.SousActiviteService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/activites")
-public class ActiviteController {
+@RequestMapping("/sousActivites")
+public class SousActiviteController {
 	@Autowired
-	private ActiviteService activiteService;
+	private SousActiviteService sousActiviteService;
 
-	@GetMapping
-	public List<Activite> getAllActivite() {
-		return activiteService.findAll();
+	@GetMapping("/activite/{id}")
+	public List<SousActivite> getByActivite(@PathVariable Integer id) {
+		return sousActiviteService.findByActivite(id);
 	}
 
 	@PostMapping
-	public MessageResponse createActivite(@RequestBody Activite activite) {
-		return activiteService.save(activite);
+	public MessageResponse createSousActivite(@RequestBody SousActivite sousActivite) {
+		return sousActiviteService.save(sousActivite);
 	}
 
 	@PutMapping
-	public MessageResponse update(@RequestBody Activite activite) {
-		return activiteService.update(activite);
+	public MessageResponse update(@RequestBody SousActivite sousActivite) {
+		return sousActiviteService.update(sousActivite);
 	}
 
 	@DeleteMapping("/{id}")
 	public MessageResponse delete(@PathVariable Integer id) {
-		return activiteService.delete(id);
+		return sousActiviteService.delete(id);
 	}
 
 }

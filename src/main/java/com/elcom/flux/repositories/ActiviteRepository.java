@@ -10,4 +10,8 @@ import com.elcom.flux.entities.ODP;
 @Repository
 public interface ActiviteRepository extends JpaRepository<Activite,Integer > {
 
+	boolean existsByNom(String nom);
+
+	boolean existsByIdAndOperateursNotNull(Integer id);
+
 }

@@ -69,7 +69,13 @@ public class ResponsableService {
 		// TODO Auto-generated method stub
 		return responsableRepository.findAll();
 	}
-
+	
+	public List<Responsable> findEnabled(){
+		return responsableRepository.findByEnabledAndPosteNot(true, "Admin");
+	}
+	public List<Responsable> findDisabled(){
+		return responsableRepository.findByEnabledAndPosteNot(false, "Admin");
+	}
 	public Responsable findById(Integer id) {
 		// TODO Auto-generated method stub
 		return responsableRepository.findById(id).orElse(null);

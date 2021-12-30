@@ -31,6 +31,14 @@ public class ResponsableController {
 		return responsableService.findAll();
 	}
 
+	@GetMapping("/enabled")
+	public List<Responsable> getEnabled() {
+		return responsableService.findEnabled();
+	}
+	@GetMapping("/disabled")
+	public List<Responsable> getDisabled() {
+		return responsableService.findDisabled();
+	}
 	@PostMapping
 	public MessageResponse createResponsable(@RequestBody Responsable responsable) {
 		return responsableService.save(responsable);

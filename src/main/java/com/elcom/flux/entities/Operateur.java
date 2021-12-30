@@ -16,6 +16,9 @@ public class Operateur extends Employee  implements Serializable {
 	@ManyToOne
 	private Responsable responsable;
 	
+	@ManyToOne
+	private Activite activite;
+	
 	
 
 	
