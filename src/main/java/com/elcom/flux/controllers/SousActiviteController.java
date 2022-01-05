@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.elcom.flux.entities.Activite;
 import com.elcom.flux.entities.SousActivite;
 import com.elcom.flux.repositories.SousActiviteRepository;
 import com.elcom.flux.responses.MessageResponse;
@@ -28,6 +29,10 @@ public class SousActiviteController {
 	@GetMapping("/activite/{id}")
 	public List<SousActivite> getByActivite(@PathVariable Integer id) {
 		return sousActiviteService.findByActivite(id);
+	}
+	@GetMapping
+	public List<SousActivite> getAllActivite() {
+		return sousActiviteService.findAll();
 	}
 
 	@PostMapping

@@ -55,4 +55,8 @@ public class SousActiviteService {
 		activite.setId(id);
 		return sousActiviteRepository.findByActivite(activite);
 	}
+	public List<SousActivite> findAll() {
+		return sousActiviteRepository.findAll();
+	}
+
 }

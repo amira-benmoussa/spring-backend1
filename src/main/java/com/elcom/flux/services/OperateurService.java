@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.elcom.flux.entities.Operateur;
+import com.elcom.flux.entities.Responsable;
 import com.elcom.flux.repositories.EmployeeRepository;
 import com.elcom.flux.repositories.OperateurRepository;
 import com.elcom.flux.responses.MessageResponse;
@@ -65,6 +66,13 @@ public class OperateurService {
 		Operateur.setEnabled(!Operateur.isEnabled());
 		operateurRepository.save(Operateur);
 		return new MessageResponse(true, "Succès", "Opération effectuée");
+	}
+
+	public List<Operateur> findEnabled(){
+		return operateurRepository.findByEnabled(true);
+	}
+	public List<Operateur> findDisabled(){
+		return operateurRepository.findByEnabled(false);
 	}
 
 }
