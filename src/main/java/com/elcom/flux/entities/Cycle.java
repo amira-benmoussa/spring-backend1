@@ -2,8 +2,6 @@ package com.elcom.flux.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,19 +14,19 @@ import lombok.Data;
 
 @Entity
 @Data
+public class Cycle {
 
-public class Activite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "nom")
 	private String nom;
-
-	
-
-	
+	private boolean ligneSimple;
+	private boolean ligneUltra;
+	private boolean composant;
+	private boolean etiquette;
+	private boolean tube;
 	@JsonIgnore
-	@OneToMany(mappedBy = "activite", cascade = CascadeType.REMOVE)
-	private List<SousActivite> sousActivites;
+	@OneToMany(mappedBy = "cycle")
+	private List<Article> articles;
 }

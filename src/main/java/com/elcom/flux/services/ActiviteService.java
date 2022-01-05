@@ -40,12 +40,7 @@ public class ActiviteService {
 
 	public MessageResponse delete(Integer id) {
 
-		boolean exist = activiteRepository.existsByIdAndOperateursNotNull(id);
-
-		if (exist) {
-			return new MessageResponse(false, "Attention", "Activité associée a un ou plusieurs opérateurs");
-		}
-
+		
 		activiteRepository.deleteById(id);
 		return new MessageResponse(true, "Succès", "Opération effectuée");
 	}

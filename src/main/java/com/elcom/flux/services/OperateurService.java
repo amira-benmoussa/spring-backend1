@@ -1,14 +1,19 @@
 package com.elcom.flux.services;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.elcom.flux.entities.Operateur;
-import com.elcom.flux.entities.Responsable;
+import com.elcom.flux.entities.SousActivite;
 import com.elcom.flux.repositories.EmployeeRepository;
 import com.elcom.flux.repositories.OperateurRepository;
+import com.elcom.flux.repositories.SousActiviteRepository;
 import com.elcom.flux.responses.MessageResponse;
 
 @Service
@@ -18,13 +23,30 @@ public class OperateurService {
 	private OperateurRepository operateurRepository;
 	@Autowired
 	private EmployeeRepository employeeRepository;
+	@Autowired
+	private SousActiviteRepository sousActiviteRepository;
 
+	@Transactional
 	public MessageResponse save(Operateur operateur) {
 
 		boolean exist = employeeRepository.existsByMatricule(operateur.getMatricule());
 		if (exist) {
 			return new MessageResponse(false, "Attention", "Matricule existe déjà");
 		}
+//		List<Operateur> op = new ArrayList<>();
+//		op.add(operateur);
+//
+//	List<SousActivite> sousActivities =	operateur.getSousActivites().stream().map(s -> {
+//			s.setOperateurs(op);
+//			return s;
+//		}).collect(Collectors.toList());
+
+		List<Integer> ids = operateur.getSousActivites().stream().map(s -> {
+
+			return s.getId();
+		}).collect(Collectors.toList());
+		List<SousActivite> sousActivities = sousActiviteRepository.findAllById(ids);
+		operateur.setSousActivites(sousActivities);
 		operateur.setEnabled(true);
 		operateurRepository.save(operateur);
 		return new MessageResponse(true, "Succès", "Opération effectuée");
@@ -68,10 +90,11 @@ public class OperateurService {
 		return new MessageResponse(true, "Succès", "Opération effectuée");
 	}
 
-	public List<Operateur> findEnabled(){
+	public List<Operateur> findEnabled() {
 		return operateurRepository.findByEnabled(true);
 	}
-	public List<Operateur> findDisabled(){
+
+	public List<Operateur> findDisabled() {
 		return operateurRepository.findByEnabled(false);
 	}
 
