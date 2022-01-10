@@ -26,12 +26,15 @@ public class Employee implements Serializable {
 	private String matricule;
 
 	private String nom;
-
+	
 	private String prenom;
-
+	
 	private String tel;
-
+	
+	private String adresse;
+	
 	private String poste;
+	
 	private boolean enabled;
 
 }

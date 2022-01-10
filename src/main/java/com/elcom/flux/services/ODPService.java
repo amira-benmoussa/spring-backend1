@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.elcom.flux.entities.ODP;
+import com.elcom.flux.entities.Odp;
 import com.elcom.flux.repositories.ODPRepository;
 
 import helper.ODPHelper;
@@ -18,14 +18,14 @@ public class ODPService {
 
 	  public void save(MultipartFile file) {
 	    try {
-	      List<ODP> ODPS = ODPHelper.excelToODPS(file.getInputStream());
+	      List<Odp> ODPS = ODPHelper.excelToODPS(file.getInputStream());
 	      repository.saveAll(ODPS);
     } catch (IOException e) {
 	      throw new RuntimeException("fail to store excel data: " + e.getMessage());
 	    }
 	  }
 
-	  public List<ODP> getAllODPS() {
+	  public List<Odp> getAllODPS() {
 	    return repository.findAll();
 	  }
 

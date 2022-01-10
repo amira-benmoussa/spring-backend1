@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.elcom.flux.entities.Activite;
 import com.elcom.flux.entities.Employee;
-import com.elcom.flux.entities.ODP;
+import com.elcom.flux.entities.Odp;
 import com.elcom.flux.exceptions.RessourceNotFoundException;
 import com.elcom.flux.repositories.ODPRepository;
 import com.elcom.flux.responses.MessageResponse;
@@ -40,18 +40,18 @@ public class ODPController {
 //	 ODPService fileService;
 	
 	@PostMapping("/odp")
-	public ODP createODP(@RequestBody ODP odp) {
+	public Odp createODP(@RequestBody Odp odp) {
 		return odpRepository.save(odp);
 	}
 	
 	@GetMapping("odp")
-	public List<ODP> getAllEmployees(){
+	public List<Odp> getAllEmployees(){
 		return odpRepository.findAll();
 	}
 	
 	@DeleteMapping("/odp/{id}")
 	public ResponseEntity<Map<String, Boolean>>deleteOdp(@PathVariable Integer id){
-		ODP odp = odpRepository.findById(id)
+		Odp odp = odpRepository.findById(id)
 				.orElseThrow(() -> new RessourceNotFoundException("matricule inexistane"+id));
 		odpRepository.delete(odp);
 		Map<String, Boolean> response = new HashMap<>();

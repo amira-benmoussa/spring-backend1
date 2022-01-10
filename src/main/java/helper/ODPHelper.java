@@ -12,7 +12,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.elcom.flux.entities.ODP;
+import com.elcom.flux.entities.Odp;
 
 public class ODPHelper {
 	
@@ -29,14 +29,14 @@ public class ODPHelper {
 	    return true;
 	  }
 
-	  public static List<ODP> excelToODPS(InputStream is) {
+	  public static List<Odp> excelToODPS(InputStream is) {
 	    try {
 	      Workbook workbook = new XSSFWorkbook(is);
 
 	      Sheet sheet = workbook.getSheet(SHEET);
 	      Iterator<Row> rows = sheet.iterator();
 
-	      List<ODP> ODPS = new ArrayList<ODP>();
+	      List<Odp> ODPS = new ArrayList<Odp>();
 
 	      int rowNumber = 0;
 	      while (rows.hasNext()) {
@@ -50,7 +50,7 @@ public class ODPHelper {
 
 	        Iterator<Cell> cellsInRow = currentRow.iterator();
 
-	        ODP ODP = new ODP();
+	        Odp ODP = new Odp();
 
 	        int cellIdx = 0;
 	        while (cellsInRow.hasNext()) {
