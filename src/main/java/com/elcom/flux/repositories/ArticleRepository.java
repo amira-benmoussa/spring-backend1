@@ -8,4 +8,6 @@ public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
 	boolean existsByNom(String nom);
 
+	Article findOneByNom(String article);
+
 }

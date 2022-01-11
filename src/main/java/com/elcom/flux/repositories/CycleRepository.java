@@ -12,6 +12,8 @@ public interface CycleRepository  extends JpaRepository<Cycle, Integer>{
 
 	boolean existsByIdAndArticlesNotNull(Integer id);
 
+	Cycle findOneByNom(String string);
+
 	
 
 }

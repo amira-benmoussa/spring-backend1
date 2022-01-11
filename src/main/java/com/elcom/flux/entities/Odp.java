@@ -2,15 +2,12 @@ package com.elcom.flux.entities;
 
 
 
-import javax.persistence.Column;
+import java.util.Date;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-
 
 import lombok.Data;
 
@@ -18,14 +15,13 @@ import lombok.Data;
 @Data
 public class Odp {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private Number numero;
-	private String date_creation;
+	private String numero;
+	private Date dateCreation;
 	private Integer quantite;
 	private String etat;
+	@Lob
 	private String commentaire;
-	
+	private int urgence;
 	@ManyToOne
 	private Article article;
 	
