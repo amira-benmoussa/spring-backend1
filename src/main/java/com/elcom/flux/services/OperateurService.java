@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.elcom.flux.entities.Operateur;
+import com.elcom.flux.entities.Responsable;
 import com.elcom.flux.entities.SousActivite;
 import com.elcom.flux.repositories.EmployeeRepository;
 import com.elcom.flux.repositories.OperateurRepository;
@@ -74,6 +75,13 @@ public class OperateurService {
 		// TODO Auto-generated method stub
 		return operateurRepository.findAll();
 	}
+	
+	
+	public List<Operateur> findByResponsable(Integer id) {
+		Responsable responsable = new Responsable();
+		responsable.setId(id);
+		return operateurRepository.findByResponsable(responsable);
+	}
 
 	public Operateur findById(Integer id) {
 		// TODO Auto-generated method stub
@@ -96,6 +104,19 @@ public class OperateurService {
 
 	public List<Operateur> findDisabled() {
 		return operateurRepository.findByEnabled(false);
+	}
+	
+	
+	public List<Operateur> findEnabledByResponsable(Integer id) {
+		Responsable responsable = new Responsable();
+		responsable.setId(id);
+		return operateurRepository.findByEnabledAndResponsable(true, responsable);
+	}
+
+	public List<Operateur> findDisabledByResponsable(Integer id) {
+		Responsable responsable = new Responsable();
+		responsable.setId(id);
+		return operateurRepository.findByEnabledAndResponsable(false, responsable);
 	}
 
 }

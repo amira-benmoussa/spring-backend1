@@ -1,5 +1,6 @@
 package com.elcom.flux.repositories;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,4 +16,6 @@ public interface ResponsableRepository extends JpaRepository<Responsable, Intege
 
 	List<Responsable> findByEnabledAndPosteNot(boolean b, String string);
 
+	Optional<Responsable> findByEmail(String email);
+	Optional <Responsable> findByMatricule(String email);
 }

@@ -29,6 +29,16 @@ public class OperateurController {
 	public List<Operateur> getAllOperateur() {
 		return operateurService.findAll();
 	}
+	
+	@GetMapping("/enabled/responsable/{id}")
+	public List<Operateur> getEnabledOperateurByResponsable(@PathVariable Integer id) {
+		return operateurService.findEnabledByResponsable(id);
+	}
+	
+	@GetMapping("/disabled/responsable/{id}")
+	public List<Operateur> getDisabledOperateurByResponsable(@PathVariable Integer id) {
+		return operateurService.findDisabledByResponsable(id);
+	}
 
 	@GetMapping("/enabled")
 	public List<Operateur> getEnabled() {

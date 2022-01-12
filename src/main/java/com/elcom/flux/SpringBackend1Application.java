@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
-@EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
+
+//@EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @SpringBootApplication
 public class SpringBackend1Application {
 

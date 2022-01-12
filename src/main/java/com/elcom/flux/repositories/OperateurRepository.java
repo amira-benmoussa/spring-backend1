@@ -12,4 +12,8 @@ public interface OperateurRepository extends JpaRepository<Operateur, Integer> {
 
 	List<Operateur> findByEnabled(boolean b);
 
+	List<Operateur> findByResponsable(Responsable responsable);
+
+	List<Operateur> findByEnabledAndResponsable(boolean b, Responsable responsable);
+
 }
