@@ -40,7 +40,7 @@ public class ODPService {
 					article = new Article();
 					article.setNom(odpReq.getArticle());
 
-					Cycle cycle = cycleRepository.findOneByNom("STS0");
+					Cycle cycle = cycleRepository.findOneByNom("STD0");
 
 //				if(cycle==null) {
 //					// traitemenet

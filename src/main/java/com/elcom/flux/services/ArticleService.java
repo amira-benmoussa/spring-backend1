@@ -19,7 +19,7 @@ public class ArticleService {
 		boolean exist = articleRepository.existsByNom(article.getNom());
 
 		if (exist) {
-			return new MessageResponse(false, "Attention", "Activité existante");
+			return new MessageResponse(false, "Attention", "Article existant");
 		}
 
 		articleRepository.save(article);
@@ -28,11 +28,7 @@ public class ArticleService {
 
 	public MessageResponse update(Article article) {
 
-		boolean exist = articleRepository.existsByNom(article.getNom());
 
-		if (exist) {
-			return new MessageResponse(false, "Attention", "Activité existante");
-		}
 
 		articleRepository.save(article);
 		return new MessageResponse(true, "Succès", "Opération effectuée");

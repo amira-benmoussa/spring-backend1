@@ -38,6 +38,9 @@ public class ActiviteService {
 		return new MessageResponse(true, "Succès", "Opération effectuée");
 	}
 
+
+
+
 	public MessageResponse delete(Integer id) {
 
 		
