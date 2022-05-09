@@ -68,7 +68,8 @@ public class ODPService {
 	}
 
 	public List<Odp> findOdpsNotProd() {
-		return odpRepository.findByEtatNotOrderByDateCreationDesc("Production");
+		//return odpRepository.findByEtatNotOrderByDateCreationDesc("Production");
+		return odpRepository.findAll();
 	}
 
 	public MessageResponse update(Odp odp) {
