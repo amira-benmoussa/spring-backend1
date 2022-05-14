@@ -11,5 +11,5 @@ public interface ODPRepository extends JpaRepository<Odp,String> {
 	
 	
 	public List<Odp> findByEtatNotOrderByDateCreationDesc(String etat);
-
+	long countByEtat(String etat);
 }

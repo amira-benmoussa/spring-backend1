@@ -16,4 +16,7 @@ public interface OperateurRepository extends JpaRepository<Operateur, Integer> {
 
 	List<Operateur> findByEnabledAndResponsable(boolean b, Responsable responsable);
 
+	long countByResponsableAndEnabled(Responsable responsable, boolean enabled);
+
+
 }

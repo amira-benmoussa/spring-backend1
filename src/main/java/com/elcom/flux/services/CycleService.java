@@ -44,7 +44,7 @@ public class CycleService {
 		boolean exist = cycleRepository.existsByIdAndArticlesNotNull(id);
 
 		if (exist) {
-			return new MessageResponse(false, "Attention", "Activité associée a un ou plusieurs sous activités");
+			return new MessageResponse(false, "Attention", "Cycle associée a un ou plusieurs articles");
 		}
 
 		cycleRepository.deleteById(id);
