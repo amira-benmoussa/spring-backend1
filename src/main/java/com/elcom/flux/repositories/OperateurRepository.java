@@ -18,5 +18,7 @@ public interface OperateurRepository extends JpaRepository<Operateur, Integer> {
 
 	long countByResponsableAndEnabled(Responsable responsable, boolean enabled);
 
+	Operateur findOneByMatricule(String matricule);
+
 
 }

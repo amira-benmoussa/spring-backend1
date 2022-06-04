@@ -3,13 +3,9 @@ package com.elcom.flux.entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Entity
@@ -26,4 +22,8 @@ public class Operateur extends Employee implements Serializable {
 					nullable = false, updatable = false) })
 	private List<SousActivite> sousActivites;
 
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "operateur")
+	public List<Absence> absences;
 }

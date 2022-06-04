@@ -76,4 +76,10 @@ public class ODPService {
 		odpRepository.save(odp);
 		return new MessageResponse(true, "Succès", "Opération effectuée");
 	}
+
+    public MessageResponse delete(String id) {
+
+		odpRepository.deleteById(id);
+		return new MessageResponse(true, "Succès", "Opération effectuée");
+    }
 }

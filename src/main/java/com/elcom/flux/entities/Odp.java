@@ -4,10 +4,7 @@ package com.elcom.flux.entities;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import lombok.Data;
 
@@ -16,6 +13,7 @@ import lombok.Data;
 public class Odp {
 	@Id
 	private String numero;
+	@Temporal(TemporalType.DATE)
 	private Date dateCreation;
 	private Integer quantite;
 	private String etat;
